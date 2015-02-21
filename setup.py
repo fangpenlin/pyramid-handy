@@ -4,6 +4,11 @@ use_setuptools()
 from setuptools import setup, find_packages
 
 version = '0.0.0'
+try:
+    import pyramid_handy
+    version = pyramid_handy.__version__
+except ImportError:
+    pass
 
 tests_require = [
     'webtest',
