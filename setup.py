@@ -28,7 +28,7 @@ setup(
     ],
     keywords='pyramid',
     author='Victor Lin',
-    author_email='bornstub@gmail.com',
+    author_email='hello@victorlin.me',
     url='https://github.com/victorlin/pyramid-handy',
     license='MIT',
     version=version,

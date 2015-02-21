@@ -1,1 +1,2 @@
 include ez_setup.py README.md *.txt
+recursive-exclude tests *
