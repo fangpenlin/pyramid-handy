@@ -8,6 +8,6 @@ install:
   - 'pip install -e .[tests]'
 # command to run tests
 script: 
-  - 'py.test -svvv --cov-report term-missing --cov pyramid_handy tests'
+  - 'tox'
   - 'pip install flake8'
   - 'flake8 pyramid_handy --ignore=E501,W293'
