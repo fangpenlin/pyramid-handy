@@ -20,6 +20,17 @@ tests_require = [
 
 setup(
     name='pyramid-handy',
+    description='Some handy stuff for Pyramid web framework',
+    classifiers=[
+        "Intended Audience :: Developers",
+        "Programming Language :: Python",
+        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    ],
+    keywords='pyramid',
+    author='Victor Lin',
+    author_email='bornstub@gmail.com',
+    url='https://github.com/victorlin/pyramid-handy',
+    license='MIT',
     version=version,
     packages=find_packages(),
     install_requires=[
