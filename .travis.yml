@@ -1,6 +1,10 @@
 language: python
 python:
   - '2.7'
+env:
+  - TOXENV=py27-pyramid13
+  - TOXENV=py27-pyramid14
+  - TOXENV=py27-pyramid15
 # command to install dependencies
 install: 
   - 'easy_install -U setuptools'
