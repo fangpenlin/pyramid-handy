@@ -5,13 +5,16 @@ env:
   - TOXENV=py27-pyramid13
   - TOXENV=py27-pyramid14
   - TOXENV=py27-pyramid15
+  - TOXENV=py34-pyramid13
+  - TOXENV=py34-pyramid14
+  - TOXENV=py34-pyramid15
 # command to install dependencies
-install: 
+install:
   - 'easy_install -U setuptools'
   - 'pip install -U pip'
   - 'pip install tox'
 # command to run tests
-script: 
+script:
   - 'tox'
   - 'pip install flake8'
   - 'flake8 pyramid_handy --ignore=E501,W293'

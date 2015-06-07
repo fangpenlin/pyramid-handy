@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import six
+
 
 def allow_origin_tween_factory(handler, registry):
     """Allow cross origin XHR requests
@@ -13,7 +15,7 @@ def allow_origin_tween_factory(handler, registry):
             allowed_origins = (
                 request.registry.settings.get('api.allowed_origins', [])
             )
-            if isinstance(allowed_origins, (str, unicode)):
+            if isinstance(allowed_origins, six.string_types):
                 allowed_origins = allowed_origins.splitlines()
             if not origin:
                 return False
@@ -28,36 +30,35 @@ def allow_origin_tween_factory(handler, registry):
             """
             allowed_methods = settings.get(
                 'api.allowed_methods',
-                b'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+                str('GET, POST, PUT, DELETE, PATCH, OPTIONS'),
             )
             if callable(allowed_methods):
                 allowed_methods = allowed_methods(request)
 
             allowed_headers = settings.get(
                 'api.allowed_headers',
-                b'Content-Type, Authorization, Range',
+                str('Content-Type, Authorization, Range'),
             )
             if callable(allowed_headers):
                 allowed_headers = allowed_headers(request)
 
             allowed_credentials = settings.get(
                 'api.allowed_credentials',
-                b'true',
+                str('true'),
             )
             if callable(allowed_credentials):
                 allowed_credentials = allowed_credentials(request)
 
-            response.headers[b'Access-Control-Allow-Origin'] = request_origin
+            response.headers['Access-Control-Allow-Origin'] = request_origin
             if allowed_credentials:
-                response.headers[b'Access-Control-Allow-Credentials'] = str(
-                    allowed_credentials,
-                )
+                response.headers[str('Access-Control-Allow-Credentials')] = \
+                    str(allowed_credentials)
             if allowed_methods:
-                response.headers[b'Access-Control-Allow-Methods'] = str(
+                response.headers[str('Access-Control-Allow-Methods')] = str(
                     allowed_methods,
                 )
             if allowed_headers:
-                response.headers[b'Access-Control-Allow-Headers'] = str(
+                response.headers[str('Access-Control-Allow-Headers')] = str(
                     allowed_headers,
                 )
 
