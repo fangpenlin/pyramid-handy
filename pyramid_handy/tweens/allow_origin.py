@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-import six
+from builtins import str
 
 
 def allow_origin_tween_factory(handler, registry):
@@ -15,7 +15,7 @@ def allow_origin_tween_factory(handler, registry):
             allowed_origins = (
                 request.registry.settings.get('api.allowed_origins', [])
             )
-            if isinstance(allowed_origins, six.string_types):
+            if isinstance(allowed_origins, str):
                 allowed_origins = allowed_origins.splitlines()
             if not origin:
                 return False

@@ -18,7 +18,7 @@ def get_remote_user(request):
     if authmeth.lower() != 'basic':
         return
     try:
-        auth = base64.b64decode(auth.strip().encode('utf8')).decode('utf8')
+        auth = base64.b64decode(auth.strip().encode('latin1')).decode('latin1')
     except (binascii.Error, TypeError):  # can't decode
         return
     try:
