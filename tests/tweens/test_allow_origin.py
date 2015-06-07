@@ -74,14 +74,14 @@ def test_not_allowed(testapp, allowed_origins, origin):
     resp = testapp.options(
         '/',
         headers={
-            'Origin': b'http://127.0.0.1',
+            'Origin': str('http://127.0.0.1'),
         },
         status='*',
     )
     resp_allow_origin = resp.headers.get('Access-Control-Allow-Origin', [])
-    assert b'http://127.0.0.1' in resp_allow_origin
-    # ensure given origin is not allowed
+    assert 'http://127.0.0.1' in resp_allow_origin
     origin = str(origin)
+    # ensure given origin is not allowed
     resp = testapp.options(
         '/',
         headers={
@@ -106,7 +106,7 @@ def test_function_settings(testapp):
     resp = testapp.options(
         '/',
         headers={
-            'Origin': b'http://127.0.0.1',
+            'Origin': str('http://127.0.0.1')
         },
         status='*',
     )

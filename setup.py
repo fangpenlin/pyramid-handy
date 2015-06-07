@@ -22,6 +22,9 @@ setup(
     name='pyramid-handy',
     description='Some handy stuff for Pyramid web framework',
     classifiers=[
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
         "Programming Language :: Python",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
@@ -35,6 +38,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'pyramid',
+        'six',
     ],
     extras_require=dict(
         tests=tests_require,

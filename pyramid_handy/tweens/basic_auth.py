@@ -1,4 +1,6 @@
 from __future__ import unicode_literals
+
+import base64
 import binascii
 
 
@@ -16,8 +18,8 @@ def get_remote_user(request):
     if authmeth.lower() != 'basic':
         return
     try:
-        auth = auth.strip().decode('base64')
-    except binascii.Error:  # can't decode
+        auth = base64.b64decode(auth.strip().encode('utf8')).decode('utf8')
+    except (binascii.Error, TypeError):  # can't decode
         return
     try:
         login, password = auth.split(':', 1)
