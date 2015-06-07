@@ -35,10 +35,10 @@ setup(
     url='https://github.com/victorlin/pyramid-handy',
     license='MIT',
     version=version,
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     install_requires=[
         'pyramid',
-        'six',
+        'future',
     ],
     extras_require=dict(
         tests=tests_require,
